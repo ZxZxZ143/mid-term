@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+root {
+    --color: #fff;
+}
+
+@keyframes anime {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+body {
+    background: #212121;
+    color: #fafafa;
+    font-family: "Manrope", serif;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 60%;
+    height: fit-content;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.scoreBoard {
+    width: 100%;
+    height: fit-content;
+    font-size: 54px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#firstPlayer {
+    color: #fa2555
+}
+
+#secondPlayer {
+    color: #2555fa
+}
+
+#firstPlayer ::after {
+    background: #fa2555;
+}
+
+#secondPlayer ::after {
+    background: #2555fa;
+}
+
+.field {
+    width: 700px;
+    height: 700px;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.verticalLine {
+    width: 1px;
+    height: 90%;
+    position: absolute;
+    background: #fafafa;
+    top: 5%;
+}
+.horizontalLine {
+    width: 90%;
+    height: 1px;
+    position: absolute;
+    background: #fafafa;
+    left: 5%;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    font-size: 14em;
+    line-height: 0;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.afterGameNotification {
+    display: none;
+    width: 40%;
+    height: 40%;
+    background: #111111d5;
+    border-radius: 15px;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.retryButton {
+    width: fit-content;
+    height: fit-content;
+    padding: 0 24px;
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+    border: 3px solid #fafafa;
+    border-radius: 17px;
+    background: transparent;
+    cursor: pointer;
+    transition-duration: .3s;
+    color: #fafafa;
+}
+
+.retryButton:hover {
+    background: #fafafa;
+    color: #212121;
+}
+
+.massage {
+    font-size: 50px;
+}
+
+.active_1::after {
+    content: '';
+    display: block;
+    background: #fa2555;
+    width: 100%;
+    height: 4px;
+    transform: skewX(-45deg);
+    animation-name: anime;
+    animation-duration: .35s;
+}
+
+.active_2::after {
+    content: '';
+    display: block;
+    background: #2555fa;
+    width: 100%;
+    height: 4px;
+    transform: skewX(-45deg);
+    animation-name: anime;
+    animation-duration: .35s;
+}
+
+.cover {
+    z-index: 99;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.selectMode_container {
+    width: fit-content;
+    height: fit-content;
+}
+
+#switch {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.selectMode_container label {
+    width: 250px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafafa;
+    color: #212121;
+    font-size: 1.4em;
+    border-radius: 15px;
+    position: relative;
+}
+
+.selectMode_container label::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 55%;
+    height: 95%;
+    top: 2.5%;
+    left: .5%;
+    background: #212121;
+    border-radius: 15px;
+    transition: 0.5s;
+    z-index: 0;
+}
+
+#switch:checked + label::after {
+    left: 99.5%;
+    transform: translateX(-100%);
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="stylesheets/reset.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+</head>
+<body>
+<div class="container">
+    <div class="scoreBoard">
+        <p id="firstPlayer">R: 0</p>
+        <p id="secondPlayer">0 :B</p>
+    </div>
+    <div class="field">
+        <div class="cover hidden"></div>
+        <div class="verticalLine" style="grid-column: 2"></div>
+        <div class="verticalLine" style="grid-column: 3"></div>
+        <div class="horizontalLine" style="grid-row: 2"></div>
+        <div class="horizontalLine" style="grid-row: 3"></div>
+    </div>
+    <div class="afterGameNotification">
+        <p class="massage">Massage</p>
+        <button class="retryButton" onclick="restart()">PLAY AGAIN</button>
+    </div>
+    <div class="selectMode_container">
+        <input type="checkbox" id="switch" onchange="changeMode()">
+        <label for="switch">
+            <span>1 player</span>
+            <span>2 players</span>
+        </label>
+    </div>
+</div>
+<script src="scripts/index.js"></script>
+</body>
+</html>
